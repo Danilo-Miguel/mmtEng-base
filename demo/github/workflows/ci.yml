@@ -1,0 +1,33 @@
+name: Maven CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout do repositório
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
+
+      # Configura Java 11 (pode alterar a versão se necessário)
+      - name: Configurar JDK 11
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # Oracle JDK, AdoptOpenJDK ou outra.
+          java-version: '11'
+
+      # Rodar o Maven para construir o projeto
+      - name: Compilar projeto com Maven
+        run: mvn clean install
+
+      # Adicionar um teste básico para rodar a compilação
+      - name: Verificar o build
+        run: mvn compile
