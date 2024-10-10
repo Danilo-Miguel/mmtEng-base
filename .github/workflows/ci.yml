@@ -33,6 +33,11 @@ jobs:
         working-directory: ./ci-cd  # Caminho correto para o seu pom.xml
         run: mvn clean install
 
+      # Rodar os testes com o Maven
+      - name: Executar os testes
+        working-directory: ./ci-cd  # Garante que o Maven rode no diretório correto
+        run: mvn test
+
       # Adicionar um teste básico para rodar a compilação
       - name: Verificar o build
         working-directory: ./ci-cd  # Garante que o Maven rode no diretório correto
