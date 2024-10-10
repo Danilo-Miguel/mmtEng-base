@@ -26,6 +26,7 @@ jobs:
 
       # Rodar o Maven para construir o projeto
       - name: Compilar projeto com Maven
+        working-directory: ./ci-cd  # Defina o caminho do seu projeto Maven
         run: mvn clean install
 
       # Adicionar um teste básico para rodar a compilação
