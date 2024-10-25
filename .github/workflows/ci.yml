@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout do repositório
+      # Checkout do repositório para verificação
       - name: Checkout do repositório
         uses: actions/checkout@v3
 
